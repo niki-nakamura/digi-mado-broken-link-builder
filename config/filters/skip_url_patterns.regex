@@ -1,0 +1,10 @@
+/(contact|toiawase|inquiry|support)(/|$)
+/(news|press|pr|ir)(/|$)
+/(recruit|careers?|company|about|privacy|terms|sitemap)(/|$)
+[?&]utm_
+[?&]sort=
+/search\\?
+/tag/
+/calendar/
+/event/
+/wp-json/

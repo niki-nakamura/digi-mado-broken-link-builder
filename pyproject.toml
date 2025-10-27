@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "digi-mado-broken-link-builder"
+version = "0.1.0"
+description = "Broken link building helper for digi-mado.jp (1 run = 1 query)"
+authors = ["Creativebank Inc. (Niki)"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+google-api-python-client = "^2"
+google-auth = "^2"
+gspread = "^6"
+gspread-dataframe = "^3"
+requests = "^2"
+beautifulsoup4 = "^4"
+lxml = "^5"
+tldextract = "^5"
+pandas = "^2"
+PyYAML = "^6"
+tenacity = "^8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

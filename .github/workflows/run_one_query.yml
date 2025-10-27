@@ -1,0 +1,48 @@
+name: Run one query
+on:
+  workflow_dispatch:
+    inputs:
+      catalog_row:
+        description: "1-indexed row in カタログ (optional)"
+        required: false
+        type: string
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      # Authenticate to Google Cloud (uses SA JSON; also sets ADC for libraries)
+      - id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      # (Optional) write SA JSON to file for libraries that expect a path
+      - name: Write SA key file
+        run: |
+          echo '${{ secrets.GCP_SA_KEY }}' > $RUNNER_TEMP/sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> $GITHUB_ENV
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: pip install -r requirements.txt
+
+      - name: Run main (1 query only)
+        env:
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          SHEET_CATALOG: カタログ
+          CSE_API_KEY: ${{ secrets.CSE_API_KEY }}
+          CSE_CX: ${{ secrets.CSE_CX }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          USER_AGENT: digi-mado-broken-link-builder/0.1
+          LOG_LEVEL: INFO
+        run: |
+          python -m src.scripts.bootstrap_sheets
+          python -m src.main --catalog-row "${{ inputs.catalog_row }}"

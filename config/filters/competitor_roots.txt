@@ -1,0 +1,22 @@
+itreview.jp
+it-trend.jp
+boxil.jp
+note.com
+strate.biz
+saas.imitsu.jp
+3naoshi.com
+marketers-store.com
+enpreth.jp
+aspicjapan.org
+kigyolog.com
+liskul.com
+notepm.jp
+
+# 自社サイト
+digi-mado.jp
+
+# 大規模ドメイン / Q&A / 辞書
+yahoo.co.jp
+reddit.com
+dic.pixiv.net
+okikura.jp

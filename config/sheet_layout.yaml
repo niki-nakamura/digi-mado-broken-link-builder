@@ -1,0 +1,45 @@
+SERP_Candidates:
+  - run_id
+  - catalog_row
+  - query_raw
+  - search_q
+  - rank
+  - url
+  - title
+  - snippet
+  - excluded_by
+  - notes
+Anchors_Extracted:
+  - run_id
+  - source_url
+  - serp_rank
+  - anchor_text
+  - href
+  - href_domain
+  - rel
+  - context_excerpt
+  - match_keyword
+  - match_score
+  - created_utc
+Suspected_404s:
+  - run_id
+  - source_url
+  - serp_rank
+  - anchor_text
+  - target_url
+  - final_url
+  - status_code
+  - redirect_chain
+  - soft404_flag
+  - evidence
+  - discovered_utc
+Run_Log:
+  - run_id
+  - executed_by
+  - catalog_row
+  - query_head
+  - api_calls_cse
+  - http_requests
+  - est_cost_usd
+  - finished_utc
+  - memo
